@@ -19,7 +19,6 @@ class InitMirror:
   def __init__(self):
     # The repository that Magic Mirror open source is located
     self.url = "https://github.com/MichMich/MagicMirror"
-    #self.bMirrorInstalled = False
 	
   def isMirrorInstalled (self):
     # Check if Magic Mirror is already installed
@@ -66,17 +65,4 @@ if __name__ == '__main__':
   #mirror already installed, start it
   objMagicMirror.start()
 	
-  
-  
-  '''
-if os.path.isdir("MagicMirror"):
-  print ("Magic Mirror already installed")
-else:
-  print ("Checking out Magic mirror from repository")
-  path  = "MagicMirror_Project" 
-  clone = "git clone https://github.com/MichMich/MagicMirror" 
-  os.system(clone) # Cloning
-  print ("\n CLONED SUCCESSFULLY.! \n")
-# call function to start magic mirror
-startMagicMirror ()'''
   
