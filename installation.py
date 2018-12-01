@@ -12,6 +12,7 @@
 #******************************************************************************************************#
 
 import os
+import subprocess
 
 
 class InitMirror:
@@ -22,6 +23,8 @@ class InitMirror:
 	
   def isMirrorInstalled (self):
     # Check if Magic Mirror is already installed
+    print ("Initializing SMOW......")
+    print ("Check for previous installations")
     if os.path.isdir("MagicMirror"):
       # TODO: Add more checks on the format of the directory
       return True
@@ -32,37 +35,42 @@ class InitMirror:
     os.system("git clone https://github.com/MichMich/MagicMirror")
     if self.isMirrorInstalled:
       print("CLONED SUCCESSFULLY")
+      os.chdir('/home/pi/Desktop/iot-development-master/MagicMirror')
+      subprocess.check_call('npm install', shell=True)
+      return True
     else:
       print("SOMETHING WENT WRONG")
+      return False
     
 
   def printInfo(self):
-    print ("*********************************************************************************************")
-    print ("* SMOW V1.0                                                                                 *")
-    print ("* SMOW stands for Smart Mirror On the Wall.                                                 *")
-    print ("* It is a set of features for a Smart Mirror product, powered by Lambda Electronics         *")
-    print ("* The following is an installation script of SMOW software.                                 *")
-    print ("* If it exists, is will start the software by executing mnp install                         *")
-    print ("* If not, Magic Mirror 2 should be cloned from github repository                            *")
-    print ("*********************************************************************************************")
+    print ("*****************************************************************************")
+    print ("* SMOW V1.0                                                                 *")
+    print ("* SMOW stands for Smart Mirror On the Wall.                                 *")
+    print ("* It is a set of features for a Smart Mirror product, by Lambda Electronics *")
+    print ("* The following is an installation script of SMOW software.                 *")
+    print ("* If it exists, is will start the software by executing mnp install         *")
+    print ("* If not, Magic Mirror 2 should be cloned from github repository            *")
+    print ("*****************************************************************************")
     print ("");
-    print ("Initializing SMOW......")
-    print ("Check for previous installations")
   
   def start (self):
     #TODO: Add implementation
-    print("")
+    os.chdir('/home/pi/Desktop/iot-development-master/MagicMirror')
+    subprocess.check_call('npm start', shell=True)
 	
 if __name__ == '__main__':
 
   objMagicMirror = InitMirror()
   objMagicMirror.printInfo ()
+  bResult = True
   
   if not objMagicMirror.isMirrorInstalled():
     # need to install mirror
-    objMagicMirror.install()
+    bResult = objMagicMirror.install()
 	
   #mirror already installed, start it
-  objMagicMirror.start()
+  if bResult:
+    objMagicMirror.start()
 	
   
