@@ -26,7 +26,7 @@ class InitMirror:
   # initialises object
   def __init__(self):
     # The repository that Magic Mirror open source is located 
-    self.magicMirrorDir = "/home/pi/iot-development-master/MagicMirror"
+    self.magicMirrorDir = "/home/pi/iot-development/MagicMirror"
   # checks if mirror is downloaded
   # returns true if installed, false eitherwise
   
