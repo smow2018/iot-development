@@ -24,10 +24,10 @@ echo "Replace raspberry logo with smow logo"
 sudo cp /home/pi/iot-development/smow_logo_negative.png /usr/share/plymouth/themes/pix/splash.png
 
 echo "Installing SMOW"
-python install_smow.py
+python /home/pi/iot-development/install_smow.py
 
 echo "make smow executable"
-sudo chmod 777 /home/pi/iot-development/smow.py
+sudo chmod 777 /home/pi/iot-development/smow.sh
 
 echo "Autostart smow"
 sudo cp /home/pi/iot-development/rc.local.auto /etc/rc.local
@@ -36,10 +36,10 @@ echo "Hide menu bar"
 sudo cp /home/pi/iot-development/panel.nobar /home/pi/.config/lxpanel/LXDE-pi/panels/panel
 
 echo "Disable mouse cursor"
-sudo cp /home/pi/iot-development/lightdm.conf /etc/lightdm/lightdm.conf
+sudo cp /home/pi/iot-development/lightdm.conf.nocursor /etc/lightdm/lightdm.conf
 
 echo "Change background picture"
-sudo cp /home/pi/iot-development/desktop-items-0.conf.smow /home/pi/.config/pcmanfm/LXDE/desktop-items-0.conf
+sudo cp /home/pi/iot-development/desktop-items-0.conf.smow /home/pi/.config/pcmanfm/LXDE-pi/desktop-items-0.conf
 
 echo "reboot pi"
 sudo reboot
