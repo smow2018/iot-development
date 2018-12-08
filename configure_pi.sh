@@ -23,5 +23,8 @@ sudo cp /home/pi/iot-development/cmdline_silent_boot.txt /boot/cmdline.txt
 echo "Replace raspberry logo with smow logo"
 sudo cp /home/pi/iot-development/smow_logo_negative.png /usr/share/plymouth/themes/pix/splash.png
 
+echo "Installing SMOW"
+python install_smow.py
+
 echo "reboot pi"
 sudo reboot

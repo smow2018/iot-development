@@ -7,5 +7,5 @@ echo "* It is a set of features for a Smart Mirror product, by Lambda Electronic
 echo "* The following is an run script of SMOW software.                          *"
 echo "*****************************************************************************"
 
-python install_smow.py
+
 python run_smow.py
