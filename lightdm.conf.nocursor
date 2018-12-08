@@ -124,7 +124,7 @@ autologin-user=pi
 #autologin-in-background=false
 #autologin-session=
 #exit-on-failure=false
-xserver-command=X -s 0 dpms -nocursor
+xserver-command=X -s 0 dpms
 #
 # XDMCP Server configuration
 #

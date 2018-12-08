@@ -30,7 +30,7 @@ echo "make smow executable"
 sudo chmod 777 /home/pi/iot-development/smow.sh
 
 echo "Autostart smow"
-sudo cp /home/pi/iot-development/rc.local.auto /etc/rc.local
+sudo sh -c "echo '@lxterminal -e sh /home/pi/iot-development/smow.sh' >> /home/pi/.config/lxsession/LXDE-pi/autostart"
 
 echo "Hide menu bar"
 sudo cp /home/pi/iot-development/panel.nobar /home/pi/.config/lxpanel/LXDE-pi/panels/panel
