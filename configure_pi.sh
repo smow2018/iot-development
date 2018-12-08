@@ -26,5 +26,17 @@ sudo cp /home/pi/iot-development/smow_logo_negative.png /usr/share/plymouth/them
 echo "Installing SMOW"
 python install_smow.py
 
+echo "make smow executable"
+sudo chmod 777 /home/pi/iot-development/smow.py
+
+echo "Autostart smow"
+sudo cp /home/pi/iot-development/rc.local.auto /etc/rc.local
+
+echo "Disable mouse cursor"
+sudo cp /home/pi/iot-development/lightdm.conf /etc/lightdm/lightdm.conf
+
+echo "Change background picture"
+sudo cp /home/pi/iot-development/desktop-items-0.conf.smow /home/pi/.conf/pcmanfm/LXDE/desktop-items-0.conf
+
 echo "reboot pi"
 sudo reboot
