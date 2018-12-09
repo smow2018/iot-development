@@ -8,4 +8,5 @@ echo "* The following is an run script of SMOW software.                        
 echo "*****************************************************************************"
 
 cd /home/pi/iot-development
+sudo python wifiConf.py
 python run_smow.py
