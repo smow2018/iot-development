@@ -20,7 +20,7 @@ from location import Location
 class Features: 
   #Initialize class
   def __init__(self):
-    self.filePath = "/home/pi/iot-development/MagicMirror/config/config.js"
+    self.filePath = "/home/pi/iot-development/configuration_files/config.js.sample"
 
   # Adds current city to config.js file for currentweather module
   def addCityForCurrentWeather(self, location):
@@ -37,6 +37,10 @@ class Features:
         uiIndex = 0
         for line in lineList:
           if line == strSearch:
+            print lineList[uiIndex]
+            print lineList[uiIndex+2]
+            print lineList[uiIndex+4]
+            print lineList[uiIndex+5]
             lineList[uiIndex+2] = strReplaceHeader
             lineList[uiIndex+4] = strReplaceLocation
             lineList[uiIndex+5] = strReplaceLocationID
