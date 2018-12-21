@@ -52,7 +52,7 @@ class Mirror:
       
   # renames a filename    
   def renameFile(self, sourceFile, targetFile):
-    shutil.copy(sourceFile, targetFile)
+    shutil.copyfile(sourceFile, targetFile)
     
         
 # main function	
