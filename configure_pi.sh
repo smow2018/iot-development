@@ -10,7 +10,7 @@ cd /home/pi/iot-development/Classes
 sudo chmod 777 *
 cd /home/pi/iot-development/configuration_files
 sudo chmod 777 *
-cd /home/pi
+cd /home/pi/iot-development
 
 echo "Update pi"
 sudo apt-get update
