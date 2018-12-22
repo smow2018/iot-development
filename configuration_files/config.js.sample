@@ -56,18 +56,18 @@ var config = {
 			header: "City - Country",
 			config: {
 				location: "City",
-				locationID: "Location_id",
+				locationID: "Location Id",
 				appid: "a2f7f1e8a7a5203486b1f5123820bc4b"
 			}
 		},
 		{
 			module: "weatherforecast",
 			position: "top_right",
-			header: "Weather Forecast",
+			header: "Weather forecast for City",
 			config: {
-				location: "New York",
-				locationID: "5128581",
-				appid: "YOUR_OPENWEATHER_API_KEY"
+				location: "City",
+				locationID: "Location Id",
+				appid: "a2f7f1e8a7a5203486b1f5123820bc4b"
 			}
 		},
 		{
