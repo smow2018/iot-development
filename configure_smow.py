@@ -108,8 +108,10 @@ def enableWeatherFeature():
   bLocationIDFound = location.getLocationCode()
   if bLocationFound and bLocationIDFound:
     # add location to config.js file
-    bResult = features.addCityForCurrentWeather(location)
-    if bResult:
+    bCurrentWeather = features.addCityForCurrentWeather(location)
+    time.sleep(2)
+    bWeatherForecast = features.addCityForWeatherForecast(location)
+    if bCurrentWeather and bWeatherForecast:
       print 'SMOW detected ' + location.city + '-' + location.country + ' as current location'
       print 'With location Id: ' + location.id
     else:
