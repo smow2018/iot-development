@@ -37,10 +37,6 @@ class Features:
         uiIndex = 0
         for line in lineList:
           if line == strSearch:
-            print lineList[uiIndex]
-            print lineList[uiIndex+2]
-            print lineList[uiIndex+4]
-            print lineList[uiIndex+5]
             lineList[uiIndex+2] = strReplaceHeader
             lineList[uiIndex+4] = strReplaceLocation
             lineList[uiIndex+5] = strReplaceLocationID
