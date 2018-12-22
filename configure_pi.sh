@@ -35,7 +35,7 @@ sudo cp /home/pi/iot-development/configuration_files/smow_logo_negative.png /usr
 
 echo "Unzip city list"
 gunzip /home/pi/iot-development/configuration_files/city.list.json.gz
-chmod 777 /home/pi/iot=development/configuration_files/city.list.json
+chmod 777 /home/pi/iot-development/configuration_files/city.list.json
 
 echo "Installing SMOW"
 python /home/pi/iot-development/install_smow.py
