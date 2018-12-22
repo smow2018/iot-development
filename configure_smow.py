@@ -14,6 +14,7 @@ import os
 import sys
 import urllib2
 import sys
+import time
 
 sys.path.insert(0,'/home/pi/iot-development/Classes')
 from wifi import Wifi
@@ -99,22 +100,20 @@ def updateRotate():
       print 'Something went wrong, orientation did not update'
   return bUpdated
 
-def enableCurrentWeather():
-  selection = raw_input("Do you want to enable current weather feature?(Y/N)")
-  if selection == 'Y' or selection == 'y':
-    #first retrieve current location
-    location = Location()
-    features = Features ()
-    bLocationFound = location.getCurrentLocation()
-    bLocationIDFound = location.getLocationCode()
-    if bLocationFound and bLocationIDFound:
-      # add location to config.js file
-      bResult = features.addCityForCurrentWeather(location)
-      if bResult:
-        print 'Current weather enabled for: ' + location.city + '-' + location.country
-        print 'With location Id: ' + location.id
-      else:
-        print 'Something went wrong, current weather was not enabled'
+def enableWeatherFeature():
+  #first retrieve current location
+  location = Location()
+  features = Features ()
+  bLocationFound = location.getCurrentLocation()
+  bLocationIDFound = location.getLocationCode()
+  if bLocationFound and bLocationIDFound:
+    # add location to config.js file
+    bResult = features.addCityForCurrentWeather(location)
+    if bResult:
+      print 'SMOW detected ' + location.city + '-' + location.country + ' as current location'
+      print 'With location Id: ' + location.id
+    else:
+      print 'Something went wrong, current weather was not enabled'
 
 #main function
 # Check first for internet connection
@@ -122,10 +121,13 @@ bNetworkUpdated = updateNetwork ()
 print " "
 bOrientationUpdated = updateRotate ()
 if bNetworkUpdated or bOrientationUpdated:
-  print 'NEED TO RESTART SMOW'
+  print 'SMOW NEEDS TO RESTART SMOW'
+  print 'RESTARTING SMOW....'
+  time.sleep(4)
+  os.system('sudo reboot')
 
 print " "
 #enable current weather feature
-enableCurrentWeather()
+enableWeatherFeature()
 
 
