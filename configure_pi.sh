@@ -2,6 +2,16 @@
 # This scripts runs the configuration commands
 # for each rasoberry pi that is going to be used in SMOW
 
+
+echo "Change permission rights to software"
+cd /home/pi/iot-development
+sudo chmod 777 *
+cd /home/pi/iot-development/Classes
+sudo chmod 777 *
+cd /home/pi/iot-development/configuration_files
+sudo chmod 777 *
+cd /home/pi
+
 echo "Update pi"
 sudo apt-get update
 
@@ -22,6 +32,10 @@ sudo cp /home/pi/iot-development/configuration_files/cmdline_silent_boot.txt /bo
 
 echo "Replace raspberry logo with smow logo"
 sudo cp /home/pi/iot-development/configuration_files/smow_logo_negative.png /usr/share/plymouth/themes/pix/splash.png
+
+echo "Unzip city list"
+gunzip /home/pi/iot-development/configuration_files/city.list.json.gz
+chmod 777 /home/pi/iot=development/configuration_files/city.list.json
 
 echo "Installing SMOW"
 python /home/pi/iot-development/install_smow.py
