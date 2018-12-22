@@ -22,14 +22,14 @@ class Features:
   def __init__(self):
     self.filePath = "/home/pi/iot-development/configuration_files/config.js.sample"
 
-  # Adds current city to config.js file for currentweather module
-  def addCityForCurrentWeather(self, location):
+  # Adds current city to config.js file for weather modules
+  # currentweather and weatherforecast
+  def addCityForWeatherModule(self, location, strSearch):
     #read config file
     bFileFound = os.path.isfile(self.filePath)
     if bFileFound:
       try:
         inFile = open(self.filePath, 'r')
-        strSearch = '\t\t\tmodule: \"currentweather\",\n'
         strReplaceHeader = '\t\t\theader: \"' + location.city + ' - ' + location.country + '\",\n'
         strReplaceLocation = '\t\t\t\tlocation: \"' + location.city + '\",\n'
         strReplaceLocationID = '\t\t\t\tlocationID: \"' + location.id + '\",\n'
@@ -48,10 +48,25 @@ class Features:
         outFile.close()
         return True
       except:
-        print "Something went wrong with " +  self.filePath
+        print "Something went wrong with " + self.filePath
         return False
     else:
       print self.filePath + "not found"
       return False
+
+
+  # Adds current city to config.js file for currentweather module
+  def addCityForCurrentWeather(self, location):
+    #read config file
+    strSearch = '\t\t\tmodule: \"currentweather\",\n'
+    bCurrentWeatherEnabled = self.addCityForWeatherModule(location, strSearch)
+    return bCurrentWeatherEnabled
+
+  # Adds current city to config.js file for weather forecast module
+  def addCityForWeatherForecast(self, location):
+    #read config file
+    strSearch = '\t\t\tmodule: \"weatherforecast\",\n'
+    bForecastEnabled = self.addCityForWeatherModule(location, strSearch)
+    return bForecastEnabled
 
 # end of class __Features__
